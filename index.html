@@ -44,11 +44,11 @@
       top: 6px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 10px;
-      letter-spacing: 2px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
       color: #ff9e00;
-      background: rgba(13, 6, 28, 0.85);
-      padding: 4px 14px;
+      background: rgba(13, 6, 28, 0.88);
+      padding: 4px 12px;
       border: 1px solid rgba(255, 158, 0, 0.3);
       border-radius: 4px;
       text-transform: uppercase;
@@ -57,17 +57,17 @@
       display: none;
       white-space: nowrap;
       text-align: center;
-      max-width: 90vw;
+      max-width: 95vw;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    /* Cyber-Noir Glassmorphic HUD */
+    /* Clean, Responsive Cyber-Noir HUD */
     #hud {
       position: absolute;
       top: 30px;
-      left: 15px;
-      right: 15px;
+      left: 10px;
+      right: 10px;
       display: none;
       justify-content: space-between;
       pointer-events: none;
@@ -75,91 +75,92 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       z-index: 10;
-      flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
     .hud-card {
       background: rgba(13, 6, 28, 0.85);
       border: 1px solid rgba(168, 85, 247, 0.45);
-      border-radius: 6px;
-      padding: 8px 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(168, 85, 247, 0.2);
+      border-radius: 5px;
+      padding: 6px 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(8px);
-      flex: 1 1 auto;
-      min-width: 110px;
+      flex: 1;
+      text-align: center;
     }
     .stat-label {
       font-size: 8px;
       color: #c084fc;
-      margin-bottom: 3px;
-      letter-spacing: 2px;
+      margin-bottom: 2px;
+      letter-spacing: 1.5px;
       font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .stat-val {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       color: #ff9e00;
       text-shadow: 0 0 10px rgba(255, 158, 0, 0.5);
     }
     .bar-container {
       width: 100%;
-      max-width: 140px;
-      height: 6px;
+      height: 5px;
       background: #0d061c;
       border: 1px solid rgba(168, 85, 247, 0.3);
       border-radius: 3px;
       overflow: hidden;
-      margin-top: 4px;
+      margin-top: 3px;
     }
     #hp-bar {
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, #d90429, #ff0054);
-      box-shadow: 0 0 10px rgba(255, 0, 84, 0.6);
+      box-shadow: 0 0 8px rgba(255, 0, 84, 0.6);
       transition: width 0.15s ease;
     }
     #adren-bar {
       width: 0%;
       height: 100%;
       background: linear-gradient(90deg, #9d4edd, #ff7b00);
-      box-shadow: 0 0 10px rgba(255, 123, 0, 0.7);
+      box-shadow: 0 0 8px rgba(255, 123, 0, 0.7);
       transition: width 0.1s ease;
     }
     #slowmo-bar-container {
       display: none;
-      margin-top: 4px;
+      margin-top: 3px;
     }
     #slowmo-bar {
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, #00b4d8, #90e0ef);
-      box-shadow: 0 0 10px rgba(0, 180, 216, 0.8);
+      box-shadow: 0 0 8px rgba(0, 180, 216, 0.8);
       transition: width 0.05s linear;
     }
 
+    /* Desktop Controls Hint (Auto-hidden on Mobile to prevent overlap) */
     #controls-hint {
       position: absolute;
-      top: 92px;
+      bottom: 15px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 9px;
+      font-size: 10px;
       color: #e0aaff;
       letter-spacing: 1.5px;
       pointer-events: none;
       text-transform: uppercase;
       text-align: center;
       background: rgba(13, 6, 28, 0.88);
-      padding: 5px 14px;
+      padding: 6px 16px;
       border-radius: 14px;
       border: 1px solid rgba(168, 85, 247, 0.35);
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
       z-index: 10;
       display: none;
       white-space: nowrap;
     }
 
     /* ==========================================================================
-       MOBILE TOUCH CONTROLS (JOYSTICK & VIRTUAL ACTION BUTTONS)
+       MOBILE TOUCH OVERLAY (ALWAYS ACTIVE ON TOUCH / PHONES)
        ========================================================================== */
     #mobile-controls {
       position: absolute;
@@ -168,19 +169,19 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 20;
+      z-index: 25;
       display: none;
     }
-    /* Virtual Joystick Area */
+    /* Virtual Joystick */
     #joystick-zone {
       position: absolute;
-      bottom: 25px;
-      left: 25px;
-      width: 130px;
-      height: 130px;
+      bottom: 30px;
+      left: 20px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       background: rgba(13, 6, 28, 0.45);
-      border: 2px solid rgba(168, 85, 247, 0.4);
+      border: 2px solid rgba(168, 85, 247, 0.5);
       pointer-events: auto;
       touch-action: none;
       display: flex;
@@ -189,8 +190,8 @@
       backdrop-filter: blur(4px);
     }
     #joystick-knob {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: radial-gradient(circle, #c084fc 0%, #7b2cbf 100%);
       border: 2px solid #ffd166;
@@ -198,11 +199,12 @@
       transform: translate(0px, 0px);
       pointer-events: none;
     }
+
     /* Action Buttons Cluster */
     #touch-actions {
       position: absolute;
       bottom: 25px;
-      right: 25px;
+      right: 20px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -211,45 +213,44 @@
     }
     .touch-btn-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: flex-end;
     }
     .touch-btn {
-      width: 60px;
-      height: 60px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
-      background: rgba(13, 6, 28, 0.75);
+      background: rgba(13, 6, 28, 0.85);
       border: 2px solid rgba(168, 85, 247, 0.6);
       color: #ffd166;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
       display: flex;
       justify-content: center;
       align-items: center;
       text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 12px rgba(168, 85, 247, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(6px);
       user-select: none;
       -webkit-user-select: none;
     }
     .touch-btn:active {
-      transform: scale(0.92);
+      transform: scale(0.9);
       border-color: #ff9e00;
-      background: rgba(255, 158, 0, 0.3);
-      box-shadow: 0 0 20px rgba(255, 158, 0, 0.6);
+      background: rgba(255, 158, 0, 0.35);
+      box-shadow: 0 0 15px rgba(255, 158, 0, 0.7);
     }
     .touch-btn-fire {
-      width: 72px;
-      height: 72px;
-      background: radial-gradient(circle, rgba(217, 4, 41, 0.8) 0%, rgba(13, 6, 28, 0.9) 100%);
+      width: 68px;
+      height: 68px;
+      background: radial-gradient(circle, rgba(217, 4, 41, 0.85) 0%, rgba(13, 6, 28, 0.95) 100%);
       border-color: #ff0054;
-      font-size: 13px;
+      font-size: 12px;
       color: #ffffff;
       box-shadow: 0 0 20px rgba(255, 0, 84, 0.6);
     }
 
-    /* Screen Overlays */
+    /* Menu Screens & Overlays */
     .screen-overlay {
       position: absolute;
       top: 0;
@@ -271,26 +272,26 @@
       overflow-y: auto;
     }
 
-    /* Top-Right Glowing Spider Web */
+    /* Spider Web */
     .spider-web {
       position: absolute;
       top: 0;
       right: 0;
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 120px;
       pointer-events: none;
       z-index: 102;
       opacity: 0.65;
       filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.5));
     }
 
-    /* Floating Levitation Jack-o'-Lantern */
+    /* Floating Pumpkin */
     .floating-pumpkin-container {
       position: absolute;
-      top: 25px;
+      top: 20px;
       left: 20px;
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
       pointer-events: none;
       z-index: 103;
       animation: pumpkinLevitate 4s ease-in-out infinite alternate;
@@ -298,20 +299,20 @@
     }
     @keyframes pumpkinLevitate {
       0% { transform: translateY(0px) rotate(-3deg); }
-      50% { transform: translateY(-12px) rotate(3deg); }
-      100% { transform: translateY(-20px) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+      100% { transform: translateY(-18px) rotate(-2deg); }
     }
 
     .neon-sign-container {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .neon-the {
       font-family: 'Impact', 'Arial Black', sans-serif;
-      font-size: 20px;
-      letter-spacing: 8px;
+      font-size: 18px;
+      letter-spacing: 6px;
       color: #ffaa00;
       text-shadow: 0 0 5px #ffaa00, 0 0 15px #ff7700;
       animation: neonFlickerAmber 4.5s infinite;
@@ -319,9 +320,9 @@
     }
     .neon-continental {
       font-family: 'Arial Black', sans-serif;
-      font-size: clamp(28px, 6vw, 54px);
+      font-size: clamp(26px, 7vw, 52px);
       font-weight: 900;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       color: #ffffff;
       text-transform: uppercase;
       text-shadow: 0 0 4px #fff, 0 0 10px #df80ff, 0 0 25px #bf00ff;
@@ -341,27 +342,297 @@
     }
 
     .screen-overlay p {
-      font-size: clamp(10px, 2.5vw, 13px);
+      font-size: clamp(10px, 2.8vw, 13px);
       color: #cbbbd9;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       letter-spacing: 1.5px;
       max-width: 720px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
-    /* 3-Column Mode Selection (Responsive Grid) */
+    /* Mode Selection Grid */
     .mode-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
+      gap: 12px;
       max-width: 1050px;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     .mode-card {
       background: linear-gradient(160deg, rgba(26, 12, 54, 0.85) 0%, rgba(12, 5, 26, 0.95) 100%);
       border: 1px solid rgba(168, 85, 247, 0.4);
-      padding: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(6px);
+    }
+    .mode-card:hover, .mode-card:active {
+      border-color: #ff9e00;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 158, 0, 0.3);
+    }
+    .mode-tag {
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+      color: #ff9e00;
+      margin-bottom: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .mode-title {
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 5px;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+    }
+    .mode-desc {
+      font-size: 11px;
+      color: #a89bb6;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .mode-boss {
+      font-size: 9.5px;
+      color: #ff5400;
+      border-top: 1px dashed rgba(168, 85, 247, 0.3);
+      padding-top: 5px;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    /* Debrief Box */
+    .debrief-box {
+      background: rgba(14, 7, 30, 0.92);
+      border: 1px solid rgba(255, 158, 0, 0.5);
+      border-radius: 8px;
+      padding: 16px 20px;
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 16px;
+      text-align: left;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+    }
+    .debrief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed rgba(168, 85, 247, 0.3);
+      padding-bottom: 10px;
+    }
+    .debrief-item {
+      font-size: 10px;
+      color: #cbbbd9;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .debrief-val {
+      font-size: 15px;
+      font-weight: bold;
+      color: #ffd166;
+      margin-top: 2px;
+    }
+    .concierge-note {
+      font-size: 10px;
+      color: #e0aaff;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #1f0b3f 0%, #100524 100%);
+      color: #ffd166;
+      border: 1px solid #c084fc;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn:hover, .btn:active {
+      background: linear-gradient(135deg, #ff7b00 0%, #d90429 100%);
+      color: #ffffff;
+      border-color: #ff9e00;
+    }
+    .btn-secondary {
+      border-color: rgba(168, 85, 247, 0.4);
+      color: #cbbbd9;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="game-container">
+    <div id="purge-banner">PURGE ACTIVE: 08:44:12 // EXCOMMUNICADO LIVE</div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-card">
+        <div class="stat-label">VITAL INTEGRITY</div>
+        <div id="hp-val" class="stat-val">100 HP</div>
+        <div class="bar-container"><div id="hp-bar"></div></div>
+      </div>
+
+      <div class="hud-card">
+        <div class="stat-label" id="current-map-label">CONTINENTAL</div>
+        <div id="ammo-val" class="stat-val">15 / 15</div>
+        <div style="font-size: 8px; color: #c084fc; margin-top: 2px; font-weight: bold;" id="reload-text">TTI 9MM</div>
+      </div>
+
+      <div class="hud-card">
+        <div class="stat-label" id="ability-label">ADRENALINE</div>
+        <div id="adren-val" class="stat-val">0%</div>
+        <div class="bar-container"><div id="adren-bar"></div></div>
+        <div class="bar-container" id="slowmo-bar-container"><div id="slowmo-bar"></div></div>
+      </div>
+
+      <div class="hud-card">
+        <div class="stat-label">BOUNTY</div>
+        <div id="score-val" class="stat-val">0 COINS</div>
+        <div style="font-size: 8px; color: #ff5400; margin-top: 2px; font-weight: bold;" id="kill-val">0 KILLS</div>
+      </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="controls-hint">
+      WASD: Move | MOUSE: Aim & Shoot | R: Reload | SPACE: Pencil
+    </div>
+
+    <!-- MOBILE TOUCH OVERLAY CONTROLS -->
+    <div id="mobile-controls">
+      <!-- Left Joystick -->
+      <div id="joystick-zone">
+        <div id="joystick-knob"></div>
+      </div>
+
+      <!-- Right Action Cluster -->
+      <div id="touch-actions">
+        <div class="touch-btn-row">
+          <div class="touch-btn" id="btn-touch-action">DIVE</div>
+          <div class="touch-btn" id="btn-touch-reload">RELOAD</div>
+        </div>
+        <div class="touch-btn-row">
+          <div class="touch-btn" id="btn-touch-pencil" style="border-color: #ffd166;">PENCIL</div>
+          <div class="touch-btn touch-btn-fire" id="btn-touch-fire">FIRE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Home Menu -->
+    <div id="menu-screen" class="screen-overlay">
+      <svg class="spider-web" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0 L0 0 M100 0 L0 30 M100 0 L0 70 M100 0 L0 100 M100 0 L30 100 M100 0 L70 100 M100 0 L100 100" stroke="rgba(224, 170, 255, 0.55)" stroke-width="0.8"/>
+        <path d="M80 0 Q80 20 100 20" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M60 0 Q60 40 100 40" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M40 0 Q40 60 100 60" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M20 0 Q20 80 100 80" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M0 0 Q0 100 100 100" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+      </svg>
+
+      <div class="floating-pumpkin-container">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="55" rx="42" ry="36" fill="#e65100" stroke="#ff7900" stroke-width="2"/>
+          <ellipse cx="50" cy="55" rx="28" ry="35" fill="#f57c00"/>
+          <ellipse cx="50" cy="55" rx="14" ry="34" fill="#fb8c00"/>
+          <path d="M50 20 Q54 10 62 8 Q56 18 52 22 Z" fill="#2e7d32"/>
+          <polygon points="34,44 42,48 36,52" fill="#fff59d" filter="drop-shadow(0 0 4px #ffd600)"/>
+          <polygon points="66,44 58,48 64,52" fill="#fff59d" filter="drop-shadow(0 0 4px #ffd600)"/>
+          <path d="M30 65 L36 71 L42 66 L48 72 L54 66 L60 71 L66 65 L60 68 L54 62 L48 68 L42 62 L36 68 Z" fill="#fff59d" filter="drop-shadow(0 0 5px #ffd600)"/>
+        </svg>
+      </div>
+
+      <div class="neon-sign-container">
+        <div class="neon-the">THE</div>
+        <div class="neon-continental">CONTINENTAL</div>
+      </div>
+      <p>TACTICAL SANCTION SIMULATOR (TSS-OS) // PRE-RECON SYSTEM FOR MR. WICK</p>
+
+      <div class="mode-grid">
+        <div class="mode-card" onclick="startMission('ballroom')">
+          <div>
+            <div class="mode-tag">SECTOR I // NEW YORK RECON</div>
+            <div class="mode-title">CONTINENTAL BALLROOM</div>
+            <div class="mode-desc">Glass-and-gold ballroom breach. Close-quarters clearing against Jack-o'-Lantern ghouls and spectral phantoms.</div>
+          </div>
+          <div class="mode-boss">⚠ SIMULATED HVT: THE PUMPKIN KING</div>
+        </div>
+
+        <div class="mode-card" onclick="startMission('catacombs')">
+          <div>
+            <div class="mode-tag">SECTOR II // PARIS DRILL</div>
+            <div class="mode-title">THE CATACOMBS</div>
+            <div class="mode-desc">Subterranean crypt containment. Calibrate rapid-aim reflexes against rushing skeletal hounds and toxic projectiles.</div>
+          </div>
+          <div class="mode-boss">⚠ SIMULATED HVT: THE NECROMANCER</div>
+        </div>
+
+        <div class="mode-card" style="border-color: #00b4d8;" onclick="startMission('massacre')">
+          <div>
+            <div class="mode-tag" style="color: #00b4d8;">SECTOR III // HONG KONG PROTOCOL</div>
+            <div class="mode-title">RED CIRCLE ROOFTOP</div>
+            <div class="mode-desc"><strong>Tactical Gun-Fu:</strong> Evasion dive-rolls ($i$-frames) and bullet-time focus. High lethality hit squads in neon rain.</div>
+          </div>
+          <div class="mode-boss" style="color: #00b4d8;">⚠ HIGHLIGHT: DIVE ROLL + SLOW-MO</div>
+        </div>
+      </div>
+
+      <div style="font-size: 11px; color: #ffaa00; letter-spacing: 2px; font-weight: bold; text-shadow: 0 0 10px #ff7700;">INITIALIZE TACTICAL SIMULATION</div>
+    </div>
+
+    <!-- Debrief Screen -->
+    <div id="overlay-screen" class="screen-overlay" style="display: none;">
+      <h1 style="background: linear-gradient(135deg, #ff0054 0%, #ff5400 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: clamp(24px, 5vw, 36px); letter-spacing: 3px; margin-bottom: 6px;">HIGH TABLE TACTICAL DEBRIEF</h1>
+      <p style="margin-bottom: 12px; color: #a89bb6;">AFTER-ACTION REPORT // LOGISTICS ID: JW-001</p>
+
+      <div class="debrief-box">
+        <div style="font-size: 11px; font-weight: bold; color: #ffaa00; letter-spacing: 1.5px;">TACTICAL TELEMETRY LOG:</div>
+        
+        <div class="debrief-grid">
+          <div class="debrief-item">
+            TARGETS TERMINATED
+            <div class="debrief-val" id="debrief-kills">0</div>
+          </div>
+          <div class="debrief-item">
+            BALLISTIC ACCURACY
+            <div class="debrief-val" id="debrief-accuracy">0%</div>
+          </div>
+          <div class="debrief-item">
+            GOLD HARVESTED
+            <div class="debrief-val" id="debrief-gold">0 COINS</div>
+          </div>
+          <div class="debrief-item">
+            SIMULATION SURVIVAL
+            <div class="debrief-val" id="debrief-time">00:00</div>
+          </div>
+        </div>
+
+        <div class="concierge-note" id="concierge-advice">
+          "Concierge Assessment: Solid room-clearing, Mr. Wick."
+        </div>
+      </div>
+      
+      <div class="btn-group">
+        <button class="btn" onclick="retryMission()">RECALIBRATE SANCTION</button>
+        <button class="btn btn-secondary" onclding: 16px;
       border-radius: 8px;
       cursor: pointer;
       text-align: left;
