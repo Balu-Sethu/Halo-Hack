@@ -623,6 +623,268 @@
           </div>
           <div class="debrief-item">
             SIMULATION SURVIVAL
+            <div class="debriefding: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(6px);
+    }
+    .mode-card:hover, .mode-card:active {
+      border-color: #ff9e00;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 158, 0, 0.3);
+    }
+    .mode-tag {
+      font-size: 8.5px;
+      letter-spacing: 2px;
+      color: #ff9e00;
+      margin-bottom: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .mode-title {
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+    }
+    .mode-desc {
+      font-size: 11px;
+      color: #a89bb6;
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+    .mode-boss {
+      font-size: 9.5px;
+      color: #ff5400;
+      border-top: 1px dashed rgba(168, 85, 247, 0.3);
+      padding-top: 6px;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    /* Debrief Panel */
+    .debrief-box {
+      background: rgba(14, 7, 30, 0.92);
+      border: 1px solid rgba(255, 158, 0, 0.5);
+      border-radius: 8px;
+      padding: 18px 24px;
+      max-width: 620px;
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: left;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+    }
+    .debrief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed rgba(168, 85, 247, 0.3);
+      padding-bottom: 12px;
+    }
+    .debrief-item {
+      font-size: 10.5px;
+      color: #cbbbd9;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .debrief-val {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffd166;
+      margin-top: 2px;
+    }
+    .concierge-note {
+      font-size: 10.5px;
+      color: #e0aaff;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #1f0b3f 0%, #100524 100%);
+      color: #ffd166;
+      border: 1px solid #c084fc;
+      font-size: 11.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.25);
+    }
+    .btn:hover, .btn:active {
+      background: linear-gradient(135deg, #ff7b00 0%, #d90429 100%);
+      color: #ffffff;
+      border-color: #ff9e00;
+      box-shadow: 0 0 25px rgba(255, 123, 0, 0.6);
+    }
+    .btn-secondary {
+      border-color: rgba(168, 85, 247, 0.4);
+      color: #cbbbd9;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="game-container">
+    <div id="purge-banner">PURGE ACTIVE: 08:44:12 // EXCOMMUNICADO LIVE</div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-card">
+        <div class="stat-label">VITAL INTEGRITY</div>
+        <div id="hp-val" class="stat-val">100 HP</div>
+        <div class="bar-container"><div id="hp-bar"></div></div>
+      </div>
+
+      <div class="hud-card" style="text-align: center;">
+        <div class="stat-label" id="current-map-label">CONTINENTAL BALLROOM</div>
+        <div id="ammo-val" class="stat-val">15 / 15</div>
+        <div style="font-size: 9px; color: #c084fc; margin-top: 2px; font-weight: bold;" id="reload-text">TTI COMBAT MASTER 9MM</div>
+      </div>
+
+      <div class="hud-card" style="text-align: center;">
+        <div class="stat-label" id="ability-label">ADRENALINE [SPACE]</div>
+        <div id="adren-val" class="stat-val">0%</div>
+        <div class="bar-container"><div id="adren-bar"></div></div>
+        <div class="bar-container" id="slowmo-bar-container"><div id="slowmo-bar"></div></div>
+      </div>
+
+      <div class="hud-card" style="text-align: right;">
+        <div class="stat-label">CONTINENTAL BOUNTY</div>
+        <div id="score-val" class="stat-val">0 COINS</div>
+        <div style="font-size: 10px; color: #ff5400; margin-top: 2px; font-weight: bold;" id="kill-val">0 SANCTIONS</div>
+      </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="controls-hint">
+      WASD: Move | MOUSE: Aim & Shoot | R: Reload | SPACE: Pencil
+    </div>
+
+    <!-- MOBILE TOUCH OVERLAYS -->
+    <div id="mobile-controls">
+      <!-- Joystick -->
+      <div id="joystick-zone">
+        <div id="joystick-knob"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div id="touch-actions">
+        <div class="touch-btn-row">
+          <div class="touch-btn" id="btn-touch-action">DIVE</div>
+          <div class="touch-btn" id="btn-touch-reload">RELOAD</div>
+        </div>
+        <div class="touch-btn-row">
+          <div class="touch-btn" id="btn-touch-pencil" style="border-color: #ffd166;">PENCIL</div>
+          <div class="touch-btn touch-btn-fire" id="btn-touch-fire">FIRE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Home / Contract Selection Menu -->
+    <div id="menu-screen" class="screen-overlay">
+      <svg class="spider-web" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0 L0 0 M100 0 L0 30 M100 0 L0 70 M100 0 L0 100 M100 0 L30 100 M100 0 L70 100 M100 0 L100 100" stroke="rgba(224, 170, 255, 0.55)" stroke-width="0.8"/>
+        <path d="M80 0 Q80 20 100 20" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M60 0 Q60 40 100 40" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M40 0 Q40 60 100 60" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M20 0 Q20 80 100 80" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+        <path d="M0 0 Q0 100 100 100" stroke="rgba(224, 170, 255, 0.45)" stroke-width="0.8"/>
+      </svg>
+
+      <div class="floating-pumpkin-container">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="55" rx="42" ry="36" fill="#e65100" stroke="#ff7900" stroke-width="2"/>
+          <ellipse cx="50" cy="55" rx="28" ry="35" fill="#f57c00"/>
+          <ellipse cx="50" cy="55" rx="14" ry="34" fill="#fb8c00"/>
+          <path d="M50 20 Q54 10 62 8 Q56 18 52 22 Z" fill="#2e7d32"/>
+          <polygon points="34,44 42,48 36,52" fill="#fff59d" filter="drop-shadow(0 0 4px #ffd600)"/>
+          <polygon points="66,44 58,48 64,52" fill="#fff59d" filter="drop-shadow(0 0 4px #ffd600)"/>
+          <path d="M30 65 L36 71 L42 66 L48 72 L54 66 L60 71 L66 65 L60 68 L54 62 L48 68 L42 62 L36 68 Z" fill="#fff59d" filter="drop-shadow(0 0 5px #ffd600)"/>
+        </svg>
+      </div>
+
+      <div class="neon-sign-container">
+        <div class="neon-the">THE</div>
+        <div class="neon-continental">CONTINENTAL</div>
+      </div>
+      <p>TACTICAL SANCTION SIMULATOR (TSS-OS) // PRE-RECON SYSTEM FOR MR. WICK</p>
+
+      <div class="mode-grid">
+        <div class="mode-card" onclick="startMission('ballroom')">
+          <div>
+            <div class="mode-tag">SECTOR I // NEW YORK RECON</div>
+            <div class="mode-title">CONTINENTAL BALLROOM</div>
+            <div class="mode-desc">Glass-and-gold ballroom breach. Close-quarters clearing against Jack-o'-Lantern ghouls and spectral phantoms.</div>
+          </div>
+          <div class="mode-boss">⚠ SIMULATED HVT: THE PUMPKIN KING</div>
+        </div>
+
+        <div class="mode-card" onclick="startMission('catacombs')">
+          <div>
+            <div class="mode-tag">SECTOR II // PARIS DRILL</div>
+            <div class="mode-title">THE CATACOMBS</div>
+            <div class="mode-desc">Subterranean crypt containment. Calibrate rapid-aim reflexes against rushing skeletal hounds and toxic projectiles.</div>
+          </div>
+          <div class="mode-boss">⚠ SIMULATED HVT: THE NECROMANCER</div>
+        </div>
+
+        <div class="mode-card" style="border-color: #00b4d8;" onclick="startMission('massacre')">
+          <div>
+            <div class="mode-tag" style="color: #00b4d8;">SECTOR III // HONG KONG PROTOCOL</div>
+            <div class="mode-title">RED CIRCLE ROOFTOP</div>
+            <div class="mode-desc"><strong>Tactical Gun-Fu:</strong> Evasion dive-rolls ($i$-frames) and bullet-time focus. High lethality hit squads in neon rain.</div>
+          </div>
+          <div class="mode-boss" style="color: #00b4d8;">⚠ HIGHLIGHT: DIVE ROLL + SLOW-MO</div>
+        </div>
+      </div>
+
+      <div style="font-size: 11px; color: #ffaa00; letter-spacing: 2px; font-weight: bold; text-shadow: 0 0 10px #ff7700;">INITIALIZE TACTICAL SIMULATION</div>
+    </div>
+
+    <!-- Debrief Screen -->
+    <div id="overlay-screen" class="screen-overlay" style="display: none;">
+      <h1 style="background: linear-gradient(135deg, #ff0054 0%, #ff5400 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: clamp(26px, 5vw, 38px); letter-spacing: 4px; margin-bottom: 6px;">HIGH TABLE TACTICAL DEBRIEF</h1>
+      <p style="margin-bottom: 14px; color: #a89bb6;">AFTER-ACTION REPORT // LOGISTICS ID: JW-001</p>
+
+      <div class="debrief-box">
+        <div style="font-size: 12px; font-weight: bold; color: #ffaa00; letter-spacing: 1.5px;">TACTICAL TELEMETRY LOG:</div>
+        
+        <div class="debrief-grid">
+          <div class="debrief-item">
+            TARGETS TERMINATED
+            <div class="debrief-val" id="debrief-kills">0</div>
+          </div>
+          <div class="debrief-item">
+            BALLISTIC ACCURACY
+            <div class="debrief-val" id="debrief-accuracy">0%</div>
+          </div>
+          <div class="debrief-item">
+            GOLD HARVESTED
+            <div class="debrief-val" id="debrief-gold">0 COINS</div>
+          </div>
+          <div class="debrief-item">
+            SIMULATION SURVIVAL
             <div class="debrief0;
       box-shadow: 0 0 30px rgba(255, 123, 0, 0.6);
       transform: translateY(-2px);
